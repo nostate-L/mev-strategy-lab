@@ -3,11 +3,11 @@
 from __future__ import annotations
 
 from fastapi import APIRouter
+from mevlab.backtest.engine import BacktestEngine
+from mevlab.mempool.synthetic import SyntheticMempoolGenerator
 from pydantic import BaseModel, Field
 
 from app.scenarios import demo_pools, demo_strategies
-from mevlab.backtest.engine import BacktestEngine
-from mevlab.mempool.synthetic import SyntheticMempoolGenerator
 
 router = APIRouter(prefix="/simulate-block", tags=["simulate"])
 
