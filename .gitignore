@@ -28,3 +28,4 @@ frontend/.vite/
 fixtures/*.jsonl
 !fixtures/.gitkeep
 report.html
+frontend/tsconfig.tsbuildinfo
