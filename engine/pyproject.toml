@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mevlab"
+version = "0.1.0"
+description = "MEV Strategy Lab — backtesting and simulation engine for arbitrage, sandwich, and JIT strategies."
+
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "MEV Strategy Lab contributors" }]
+dependencies = [
+    "numpy>=1.26",
+    "pydantic>=2.6",
+    "typer>=0.12",
+    "rich>=13.7",
+    "networkx>=3.2",
+    "structlog>=24.1",
+    "msgspec>=0.18",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "pytest-cov>=4.1",
+    "hypothesis>=6.100",
+    "ruff>=0.5",
+    "mypy>=1.10",
+]
+
+[project.scripts]
+mevlab = "mevlab.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["mevlab*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "N", "C4", "PIE"]
+ignore = ["E501", "B008"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-q"
